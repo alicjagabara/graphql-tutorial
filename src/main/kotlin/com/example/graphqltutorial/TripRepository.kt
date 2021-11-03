@@ -13,6 +13,10 @@ class TripRepository {
         return this.trips.find { it.id == id }
     }
 
+    fun findTripParticipants(id: String, limit: Int = 10): List<String>? {
+        return this.trips.find { it.id == id }?.participantsId?.take(limit)
+    }
+
     fun findTrips(): List<TripDto> {
         return this.trips
     }
